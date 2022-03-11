@@ -51,18 +51,22 @@ function draw(fumenPage, tilesize, numrows, transparent) {
     }
     context.fillRect(0, 0, width, height);
 
-    for(i = 0; i < 10; i++) {
-        for(j = 0; j < numrows; j++) {
-            if(field.at(i,j) != '_') {
-                context.fillStyle = colors[field.at(i,j)].light
-                context.fillRect(i*tilesize, height-(j+1)*tilesize-tilesize/5, tilesize, tilesize+tilesize/5)
-            }
-            if(operation != undefined && operation.positions().filter(operationFilter).length > 0) {
-                context.fillStyle = colors[operation.type].light
-                context.fillRect(i*tilesize, height-(j+1)*tilesize-tilesize/5, tilesize, tilesize+tilesize/5)
-            }
-        }
-    }
+
+    //drawing depth
+    // for(i = 0; i < 10; i++) {
+    //     for(j = 0; j < numrows; j++) {
+    //         if(field.at(i,j) != '_') {
+    //             context.fillStyle = colors[field.at(i,j)].light
+    //             context.fillRect(i*tilesize, height-(j+1)*tilesize-tilesize/5, tilesize, tilesize+tilesize/5)
+    //         }
+    //         if(operation != undefined && operation.positions().filter(operationFilter).length > 0) {
+    //             context.fillStyle = colors[operation.type].light
+    //             context.fillRect(i*tilesize, height-(j+1)*tilesize-tilesize/5, tilesize, tilesize+tilesize/5)
+    //         }
+    //     }
+    // }
+
+    //drawing pieces
     for(i = 0; i < 10; i++) {
         for(j = 0; j < numrows; j++) {
             if(field.at(i,j) != '_') {
@@ -72,9 +76,28 @@ function draw(fumenPage, tilesize, numrows, transparent) {
             if(operation != undefined && operation.positions().filter(operationFilter).length > 0) {
                 context.fillStyle = colors[operation.type].normal
                 context.fillRect(i*tilesize, height-(j+1)*tilesize, tilesize, tilesize)
+
             }
         }
     }
+
+
+    // drawing grid
+    for (i = 0; i < 10; i++) {
+        for(j = 0; j < numrows; j++) {
+            let startX = i*tilesize, startY = height-(j+1)*tilesize
+
+            context.beginPath()
+            context.moveTo(startX, startY)
+            context.lineTo(startX+tilesize, startY)
+            context.lineTo(startX+tilesize, startY+tilesize)
+            context.lineTo(startX, startY+tilesize)
+            context.lineTo(startX,startY)
+            context.lineWidth = 0.5
+            context.stroke()
+        }
+    }
+
     return canvas;
 }
 
