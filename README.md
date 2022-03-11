@@ -1,3 +1,5 @@
+This fork draws a grid over the render and removes the depth effect.
+
 # fumen-canvas
 A basic command-line utility for rendering fumens as png/gif images in the style of [four.lol](https://four.lol/). Written using Knewjade's [tetris-fumen](https://github.com/knewjade/tetris-fumen).
 
