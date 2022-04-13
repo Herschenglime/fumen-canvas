@@ -1,6 +1,11 @@
 # changes in fork
 I edited the rendering behavior to remove the depth effect and add gridlines for easier diagramming for a math paper that I was writing. The modified code can be found in the [grid-render](https://github.com/Herschenglime/fumen-canvas/tree/grid-render) branch; everything else functions the same. Thanks to nathan-huckleberry for doing the hard work for me!
 
+<p align="center">
+  <img width="400"  src="s-isolated.png">
+</p>
+
+
 # fumen-canvas
 A basic command-line utility for rendering fumens as png/gif images in the style of [four.lol](https://four.lol/). Written using Knewjade's [tetris-fumen](https://github.com/knewjade/tetris-fumen).
 
